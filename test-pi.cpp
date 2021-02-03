@@ -26,7 +26,7 @@ using namespace std;
  * use it to test the primality function.
  *
  */
-static void pi(int min, int max, vector<int> primeNumbers)
+static void pi(int min, int max, vector<int> &primeNumbers)
 {
   int r=0; // compteur de nombre premiers
 
@@ -86,7 +86,7 @@ int main()
     min = intervalles[i];
     max = intervalles[i+1];
     pi(min, max, primeNumbers);
-    }
+  }
   
   cout << primeNumbers.size() << endl;
 
@@ -94,7 +94,5 @@ int main()
     cout << "Prime number : " << primeNumbers[i] << endl;
   }
 
-  //cout << "There is " << primes << " prime numbers in [" << min << ", " << max << "]" << endl;
-  //cout << "The randomization function was called " << randcalls << " times\n" << endl;
   return 0;
 }

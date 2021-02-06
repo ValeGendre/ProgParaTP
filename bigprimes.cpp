@@ -1,5 +1,4 @@
 #include <iostream>
-#include "miller-rabin-gmp.h"
 #include <vector>
 #include <iostream>
 #include <vector>
@@ -73,7 +72,7 @@ int main(int argc, const char * argv[]) {
 
 static void readFiles(vector<mpz_class> &intervallesMin, vector<mpz_class> &intervallesMax){
   // Lecture du fichier contenant les intervalles et ajout des intervalles dans le vect intervalles
-  ifstream fichier("/Users/adrienx/Desktop/UL/Progra/miller-rabin/Exemples de fichiers/8_test.txt");  //Ouverture du fichier du nom contenu dans la macro FILEINTERVAL
+  ifstream fichier("/Users/adrienx/Desktop/UL/Progra/ProgParaTP/Exemples de fichiers/3_variÇ1.txt");  //Ouverture du fichier du nom contenu dans la macro FILEINTERVAL
   if(fichier)
   {
     string min;
@@ -141,19 +140,3 @@ void triFusion(unsigned long long i, unsigned long long j, mpz_class tabMin[], m
     }
 }
 
-/*
-static mpz_class find_prime(const size_t bits, const size_t rounds)
-{
-  const mpz_class lo = mpz_class(1) << (bits - 1);
-  const mpz_class hi = (mpz_class(1) << bits) - 1;
-
-  for (;;) {
-    mpz_class candidate = randint(lo, hi);
-
-    // Try a few rounds first, to quickly discard obvious non-primes
-    if ( prob_prime(candidate, 10) )
-      if ( prob_prime(candidate, rounds) )
-        return candidate;
-  }
-}
-*/

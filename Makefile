@@ -17,6 +17,6 @@ test-pi: miller-rabin.o
 clean:
 	rm -f $(TARGETS)
 
-bigprimes: bigprimes.cpp miller-rabin-gmp.cpp 
+bigprimes: bigprimes.cpp
 	$(CXX) $(CXXFLAGS) -I$(GMPINC) -L$(GMPLIB) \
 		-lgmp -lgmpxx -o$@ $^

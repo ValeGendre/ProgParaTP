@@ -1,5 +1,142 @@
-# ProgParaTP
+The Miller-Rabin Primality Test in C++
+======================================
 
-to launch the program go into the folder and enter in a terminal : make check clean
+The Miller-Rabin primality test is a probabilistic algorithm for determining
+if a number is prime or not.
 
-The sequential code for the algorithm is from https://github.com/cslarsen/miller-rabin
+By its probabilistic nature, it runs fast --- in O(k log3 n) time ---
+but there is a chance for false positives; it can report that a number is
+prime while it is not.  False negatives are impossible, though.  If it
+reports a number is composite, it is.  
+
+For this reason, the algorithm comes with an adjustable _accuracy
+parameter_.  By increasing the parameter (and running time) slightly, the
+chance for false positives drops sharply.
+
+You can read about the algorithm at
+http://en.wikipedia.org/wiki/Miller–Rabin_primality_test
+
+The possibility for misreporting a prime but not the opposite classifies
+this as a Monte Carlo algorithm,
+http://en.wikipedia.org/wiki/Monte_carlo_algorithm
+
+I implemented the algorithm purely as a recreational challenge.  The code has
+big room for improvements; however, it *does* work as advertised.
+
+Files
+=====
+
+There are two implementations: One using `unit64_t` types (found in
+`miller-rabin.cpp`) and another using
+the GNU MP (GMP) library (`miller-rabin-gmp.cpp`).
+
+Compiling and testing
+---------------------
+
+    $ make clean check
+
+This should produce output like below.
+
+    Calculating pi(n) by using the Miller-Rabin primality test.
+
+    While this is a SLOW way of computing pi(n), we use it to test
+    the accuracy parameter `k´.
+
+    Note that since this is a probabilistic algorithm, each run can
+    produce different results.  That is why you might see incorrect
+    results below, from time to time.
+
+    Written by Christian Stigen Larsen, http://csl.sublevel3.org
+
+    For this run, k = 4
+
+    There are 0 primes less than 1
+    There are 4 primes less than 10
+    There are 25 primes less than 100
+    There are 168 primes less than 1000
+    There are 1229 primes less than 10000
+    There are 9592 primes less than 100000
+
+You can also build the GNU MP (GMP) version, supporting big numbers. If the GMP
+include files are in `/usr/local/include` and the libraries in `/usr/local/lib`
+you can compile the example program with
+
+    $ make -e GMPINC=/usr/local/include \
+              GMPLIB=/usr/local/lib bigprimes
+    $ ./bigprimes
+    Finding 1-bit prime w/1 rounds ...
+    1
+
+    Finding 2-bit prime w/1 rounds ...
+    3
+
+    Finding 4-bit prime w/1 rounds ...
+    11
+
+    Finding 8-bit prime w/2 rounds ...
+    149
+
+    Finding 16-bit prime w/4 rounds ...
+    36217
+
+    Finding 32-bit prime w/8 rounds ...
+    2356857313
+
+    Finding 64-bit prime w/16 rounds ...
+    11958603005245102499
+
+    Finding 128-bit prime w/32 rounds ...
+    286008778741040689640495397499490639611
+
+    Finding 256-bit prime w/64 rounds ...
+    9842354836322277580634740699808716329924747568829203670651138023582773426
+    6547
+
+    Finding 512-bit prime w/128 rounds ...
+    9958064240703407491822287171337700112886118343420600771585235828705020158
+    7009409365593604722692070012628995109674228627565976618569088463356362578
+    28615257
+
+    Finding 1024-bit prime w/256 rounds ...
+    1016761136931870563132612017746384236312596496952796411339665922598721002
+    6544235608701090547071956673305665545809327016950064446480471062866373150
+    7674660230366735712464798424644680940774752941894506479222568838677844047
+    9033885629516019781189304929524087043376037680283468403098167571241460627
+    68068864267081659
+
+    Finding 2048-bit prime w/512 rounds ...
+    3004553502263676736080100740308562840127080690322793649252561117725205592
+    4481019260476214466517656061310565371408577237276427015865481839461512389
+    4684785224810751871667459226741855158587723384234784066218917175397373939
+    5559946381082735930634780707203195215473436554288152974313093358889044651
+    4548403038140338497304071606553702136618833843493970389243679929303751133
+    9403082692922740746832159701678202874242939741160242460296254997038623699
+    6958220891987510611125669677439748864982509047888987852576981059815856654
+    5458662620120585739413227258875791035670817319083156782700117818336020583
+    353975292621102413812155530168693
+
+    Finding 4096-bit prime w/1024 rounds ...
+    7085550748721556825266054261877241163598207076238851059456358079141782772
+    6459611302837274317332857119515890766524375685258639740938881853425068491
+    5845280274602439513755856104887923958629985329708825484487219893522610483
+    3980603249006456575850230383432687946478153967584409655199684905413677685
+    7499812232323886453561812572221155271572372608671748428050946919992895606
+    9013598400863878069095883864837379143027457925512702370987046854705994176
+    3463600336959004328639443494924643401001579319298918406235004578570525461
+    6052742533850600652012137948193282549845846430268101469702378837936035009
+    9577140872645195329439651769757335755100902438345953758701300539788039308
+    7182547096142106135430181849728429378429653524842539891887383299547750868
+    6896787252809417720413373057539412763230444371958624686737877100111260187
+    8723941546011863084378041335404442962700981185028503997010941993331325048
+    2266908284704997230727301236122216087184022341749052011101127772555306586
+    1331092743767336616095438544438138510027774320579610572255899980534614851
+    7753014603806173864311315494870145921050775911207988641488831652718877129
+    0784555101472371420058600266536327902607191494766032891455586475752332387
+    20230460225261665738525882651857007955179559318219151346365700507
+
+Author and license
+------------------
+
+Copyright 2012, 2017 Christian Stigen Larsen
+
+Distributed under the modified BSD license.

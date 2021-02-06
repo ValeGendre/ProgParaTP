@@ -1,0 +1,22 @@
+Il s'agit d'exemples de fichiers pour le TP1.
+
+-simple
+Un test très simple.
+
+-intervalles_courts
+Les nombres sont grands, mais les intervalles sont courts.
+
+-varié1 et varié2
+Un mélange de longueurs d'intervalles et de longueurs de nombres.
+
+-recouvrement
+Un test simple avec recouvrement des intervalles.
+
+nombres_petits
+Les intervalles sont longs avec des nombres plus petits. Il y a également recouvrement.
+
+-long
+Un test long mélangeant longueurs d'intervalles et longueurs des nombres.
+
+-test
+Un fichier test mélangeant un peu de tout. Il peut être relativement long à traiter.

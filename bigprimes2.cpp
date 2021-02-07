@@ -102,7 +102,7 @@ int main(int argc, const char * argv[]) {
 
 static void readFiles(vector<mpz_class> &intervallesMin, vector<mpz_class> &intervallesMax){
   // Lecture du fichier contenant les intervalles et ajout des intervalles dans le vect intervalles
-  ifstream fichier("/Users/adrienx/Desktop/UL/Progra/ProgParaTP/Exemples de fichiers/8_test.txt");  //Ouverture du fichier du nom contenu dans la macro FILEINTERVAL
+  ifstream fichier("/Users/adrienx/Desktop/UL/Progra/ProgParaTP/Exemples de fichiers/4_variÇ2.txt");  //Ouverture du fichier du nom contenu dans la macro FILEINTERVAL
   if(fichier)
   {
     string min;

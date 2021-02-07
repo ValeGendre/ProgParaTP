@@ -1,7 +1,7 @@
 #include "intervals.hpp"
 using namespace std;
 
-void readFiles(vector<mpz_class> &intervallesMin, vector<mpz_class> &intervallesMax, char *filename){
+void readFiles(vector<mpz_class> &intervallesMin, vector<mpz_class> &intervallesMax, string filename){
   // Lecture du fichier contenant les intervalles et ajout des intervalles dans le vect intervalles
   ifstream fichier(filename);  //Ouverture du fichier du nom contenu dans la macro FILEINTERVAL
   if(fichier)
@@ -68,7 +68,7 @@ void supprimeDoublons(mpz_class tab[], vector<mpz_class> &final, unsigned long l
     }
 }
 
-dataNumbers getNumbersToTestInOrder(char *filename){
+dataNumbers getNumbersToTestInOrder(string filename){
     dataNumbers x;
 
     vector<mpz_class> intervallesMin;

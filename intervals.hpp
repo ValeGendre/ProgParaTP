@@ -21,6 +21,6 @@
     void readFiles(vector<mpz_class> &intervallesMin, vector<mpz_class> &intervallesMax);
     void triFusion(unsigned long long i, unsigned long long j, mpz_class *tabMin, mpz_class *tempMin);
     void supprimeDoublons(mpz_class tab[], vector<mpz_class> &final, unsigned long long nbNumbers);
-    dataNumbers getNumbersToTestInOrder(void);
+    dataNumbers getNumbersToTestInOrder(string filename);
 
 #endif 

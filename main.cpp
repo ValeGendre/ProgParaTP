@@ -19,7 +19,7 @@ using namespace std;
 int main(int argc, const char * argv[]) {
   int nb_thread = atoi(argv[1]);
   char *filename = argv[2];
-  dataNumbers data = getNumbersToTestInOrder(); // A FAIRE : passer en argument de la fonction le nom du fichier d'intervalle
+  dataNumbers data = getNumbersToTestInOrder(filename); // A FAIRE : passer en argument de la fonction le nom du fichier d'intervalle
   
   return 0;
 }

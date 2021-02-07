@@ -3,22 +3,13 @@ GMPINC := /usr/local/include
 GMPLIB := /usr/local/lib
 
 CXXFLAGS := -W -Wall -O3 -march=native
-TARGETS := miller-rabin.o test-pi
+TARGETS := main
 
 all: $(TARGETS)
-
-check: test-pi
-	time nice -9 ./test-pi
-
-test-pi: miller-rabin.o
 
 clean:
 	rm -f $(TARGETS)
 
-bigprimes: bigprimes.cpp
-	$(CXX) $(CXXFLAGS) -I$(GMPINC) -L$(GMPLIB) \
-		-lgmp -lgmpxx -o$@ $^
-
-bigprimes2: bigprimes2.cpp
+main: main.cpp
 	$(CXX) $(CXXFLAGS) -I$(GMPINC) -L$(GMPLIB) \
 		-lgmp -lgmpxx -o$@ $^

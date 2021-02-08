@@ -22,9 +22,9 @@ void *thread_is_prime(void *arguments)
     mpz_class candidate;
     bool *truth_value = args -> truth_value;
     pthread_mutex_t *lmutex = args -> lmutex;
-    int tab_size = args -> tab_size;
+    unsigned long long tab_size = args -> tab_size;
 
-    for (int i = 0; i < tab_size; i++)
+    for (unsigned long long i = 0; i < tab_size; i++)
     {
         candidate = candidates[i];
         thread_is_prime_one_number(candidate, truth_value, i, lmutex);

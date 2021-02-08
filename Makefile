@@ -10,6 +10,6 @@ all: $(TARGETS)
 clean:
 	rm -f $(TARGETS)
 
-main: main.cpp
+main: main.cpp intervals.cpp threaded_prime.cpp miller-rabin-gmp.cpp
 	$(CXX) $(CXXFLAGS) -I$(GMPINC) -L$(GMPLIB) \
-		-lgmp -lgmpxx -o$@ $^
+		-o $@ $^ -lgmp -lgmpxx -lpthread

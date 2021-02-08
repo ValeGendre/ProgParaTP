@@ -1,4 +1,5 @@
-#include "miller-rabin-gmp.h"
+#include <gmpxx.h>
+#include <stdint.h>
 #include <vector>
 #include <pthread.h>
 

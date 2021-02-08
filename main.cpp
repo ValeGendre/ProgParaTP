@@ -16,40 +16,42 @@ int main(int argc, char * argv[])
     
     if (argc == 2 + 1)
     {
-        int nb_thread = atoi(argv[1]);
-        string filename = argv[2];
-        dataNumbers data = getNumbersToTestInOrder(filename);
+        int nb_thread = atoi(argv[1]); // get number of threads
+        string filename = argv[2]; // get filename (ex : Exemples\ de\ fichiers/4_variÇ2.txt)
+        dataNumbers data = getNumbersToTestInOrder(filename); // get the number of candidates and a tab of candidates
 
-        mpz_class *candidates = data.tab;
-        unsigned long long nb_int = data.nbNumbers;
+        mpz_class *candidates = data.tab; // get the tab of candidates 
+        unsigned long long nb_int = data.nbNumbers; // get the number of candidates 
 
 
-        unsigned long long size_of_part = (unsigned long long) ceil(((double) nb_int) / ((double) nb_thread));
+        unsigned long long size_of_part = (unsigned long long) ceil(((double) nb_int) / ((double) nb_thread)); // Get the nb of candidates each thread will test
 
-        mpz_class *numbers[nb_thread];
+        mpz_class *numbers[nb_thread]; // create a tab which will contain nb_thread tab of mpz_class of the size size_of_parts, the nb of candidates each thread wil test
         for (int i = 0; i < nb_thread; i++)
         {
           numbers[i] = new mpz_class[size_of_part];
         }
 
-        unsigned long long tabsizes[nb_thread];
+        unsigned long long *tabsizes = new unsigned long long[nb_thread]; // create a tab of unsigned long long of size number of threads 
         for (int i = 0; i < nb_thread; i++)
         {
             tabsizes[i] = 0;
         }
 
-        cout << candidates;
+        //cout << candidates;
 
+        // tabsizes will stock the number of candidates to test for each threads
+        // numbers will stock for each thread all the candidates to test
         unsigned long long idx = 0;
         for (unsigned long long i = 0; i < nb_int;)
         {
-            for (int j = 0; j < nb_thread; j++)
+            for (int j = 0; j < nb_thread; j++) 
             {
-                numbers[j][idx] = candidates[i];
+                numbers[j][idx] = candidates[i]; 
                 tabsizes[j]++;
 
-                i++;
-                if (i == nb_int)
+                i++; 
+                if (i == nb_int) 
                 {
                     break;
                 }

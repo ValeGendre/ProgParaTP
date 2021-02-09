@@ -1,16 +1,16 @@
-#include "threaded_prime.h"
+#include "threaded_prime.hpp"
 #include <iostream>
 
 
 void thread_is_prime_one_number(mpz_class candidate, bool *truth_value, int id, pthread_mutex_t *lmutex)
 {
-    if ( mpz_probab_prime_p(candidate.get_mpz_t(), 10) != 0)
+    if ( mpz_probab_prime_p(candidate.get_mpz_t(), 10))
     {
-        if (mpz_probab_prime_p(candidate.get_mpz_t(), 40) != 0)
+        if (mpz_probab_prime_p(candidate.get_mpz_t(), 40))
         {
-            pthread_mutex_lock(lmutex);
+            //pthread_mutex_lock(lmutex);
             truth_value[id] = true;
-            pthread_mutex_unlock(lmutex);
+            //pthread_mutex_unlock(lmutex);
         }
     }
 }

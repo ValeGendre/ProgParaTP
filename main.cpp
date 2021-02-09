@@ -1,4 +1,4 @@
-#include "threaded_prime.h"
+#include "threaded_prime.hpp"
 #include "intervals.hpp"
 #include <fstream>
 #include <vector>
@@ -38,8 +38,6 @@ int main(int argc, char * argv[])
             tabsizes[i] = 0;
         }
 
-        //cout << candidates;
-
         // tabsizes will stock the number of candidates to test for each threads
         // numbers will stock for each thread all the candidates to test
         unsigned long long idx = 0;
@@ -58,8 +56,6 @@ int main(int argc, char * argv[])
             }
             idx++;
         }
-
-
 
         bool *prime[nb_thread];
         for (int i = 0; i < nb_thread; i++)
@@ -99,13 +95,12 @@ int main(int argc, char * argv[])
             {
                 if (prime[j][i])
                 {
-                    cout << numbers[j][i] << "\n";
-                    idx++;
+                    cout << numbers[j][i] << endl;
                 }
             }
             
         }
-        cerr << chrono.get();
+        cerr << chrono.get() << endl;
     }
     return 0;
 }

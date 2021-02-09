@@ -78,7 +78,6 @@ int main(int argc, char * argv[])
         {
             args[i].candidates = numbers[i];
             args[i].truth_value = prime[i];
-            args[i].lmutex = &lMutex;
             args[i].tab_size = tabsizes[i];
             pthread_create(&threads[i], NULL, thread_is_prime, (void *) &args[i]);
         }

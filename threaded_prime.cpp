@@ -2,7 +2,7 @@
 #include <iostream>
 
 
-void thread_is_prime_one_number(mpz_class candidate, bool *truth_value, int id, pthread_mutex_t *lmutex)
+void thread_is_prime_one_number(mpz_class candidate, bool *truth_value, int id)
 {
     if ( mpz_probab_prime_p(candidate.get_mpz_t(), 10))
     {
@@ -21,13 +21,12 @@ void *thread_is_prime(void *arguments)
     mpz_class *candidates = args -> candidates;
     mpz_class candidate;
     bool *truth_value = args -> truth_value;
-    pthread_mutex_t *lmutex = args -> lmutex;
     unsigned long long tab_size = args -> tab_size;
 
     for (unsigned long long i = 0; i < tab_size; i++)
     {
         candidate = candidates[i];
-        thread_is_prime_one_number(candidate, truth_value, i, lmutex);
+        thread_is_prime_one_number(candidate, truth_value, i);
     }
     pthread_exit(NULL);
 }

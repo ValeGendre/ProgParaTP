@@ -1,11 +1,12 @@
 How to run the program ?
 ------------------------
-// in order to remove the old Makefile if any changes was done and to make a new one 
+In order to remove the old Makefile if any changes was done and to make a new one :
 
 $ make clean main
 
-// to run the program with number_of_threads an int representing the number of threads to use and filename the name of the file containing the intervals
-// the intervals file must contain one interval by line, an interval is two integer which can be very large numbers on a line and with a space between the lower bound and the upper bound.
+To run the program with number_of_threads an int representing the number of threads to use and filename the name of the file containing the intervals
+
+The intervals file must contain one interval by line, an interval is two integer which can be very large numbers on a line and with a space between the lower bound and the upper bound :
 
 $ ./main number_of_threads filename
 

@@ -68,13 +68,15 @@ void supprimeDoublons(mpz_class tab[], vector<mpz_class> &final, unsigned long l
     }
 }
 
-dataNumbers getNumbersToTestInOrder(string filename){
+dataNumbers getNumbersToTestInOrder(string filename, Chrono &chrono){
     dataNumbers x;
 
     vector<mpz_class> intervallesMin;
     vector<mpz_class> intervallesMax;
 
     readFiles(intervallesMin, intervallesMax, filename);
+
+    chrono.resume();
 
     int nbIntervalles = (int)intervallesMin.size();
     mpz_class nMin[nbIntervalles];

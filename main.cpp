@@ -16,9 +16,10 @@ int main(int argc, char * argv[])
     
     if (argc == 2 + 1)
     {
+        Chrono chrono = new Chrono(false);
         int nb_thread = atoi(argv[1]); // get number of threads
         string filename = argv[2]; // get filename (ex : Exemples\ de\ fichiers/4_variÇ2.txt)
-        dataNumbers data = getNumbersToTestInOrder(filename); // get the number of candidates and a tab of candidates
+        dataNumbers data = getNumbersToTestInOrder(filename, chrono); // get the number of candidates and a tab of candidates
 
         mpz_class *candidates = data.tab; // get the tab of candidates 
         unsigned long long nb_int = data.nbNumbers; // get the number of candidates 
@@ -72,7 +73,7 @@ int main(int argc, char * argv[])
         pthread_t threads[nb_thread];
 
         struct arg_struct args[nb_thread];
-        Chrono chrono = new Chrono;
+        
 
         for (int i = 0; i<nb_thread; i++)
         {
@@ -99,7 +100,7 @@ int main(int argc, char * argv[])
             }
             
         }
-        cerr << chrono.get() << endl;
+        cerr << "Chrono : " << chrono.get() << endl;
     }
     return 0;
 }

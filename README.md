@@ -10,6 +10,7 @@ The intervals file must contain one interval by line, an interval is two integer
 
 $ ./main number_of_threads filename
 
+Exemple : $ ./main 200 Exemples\ de\ fichiers/7_long.txt
 
 
 Author and license
